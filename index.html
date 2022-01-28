@@ -1,749 +1,234 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="en">
-    
-   <head>
-        <!--=============== basic  ===============-->
-        <meta charset="UTF-8">
-        <title>cherki | hamza</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta name="robots" content="index, cherki hamza"/>
-        <meta name="keywords" content="web, full stack, cherki hamza, programming, developer, html5 css3, javascript, Angular, Fremworks, 
-          vue js, react, php , wordpresse, cms, mysql, MVC, android, ios, PWA "/>
-        <meta name="description" content="cherki hamza develepor web full stack."/>
-        <meta name="author" content="Cherki Hamza">
-        <meta property="og:image" content="https://scontent-mrs1-1.xx.fbcdn.net/v/t1.0-9/23559915_110398883071197_8225751376365730540_n.jpg?_nc_cat=0&_nc_eui2=AeFd2NDchM9m_sdZu7fNeHmtYxpp2ZCQlnpPfV18VkD4NEbPo0RcliNusod7wzk8cLcmXWuywwHsBquMWwqvzD59O7sJShLhSJqupEDmqvBYUg&oh=90df154a9dd50706bd43fd88092b03c0&oe=5B93A635">
+<head>
+  <meta charset="utf-8">
+  <title>Cherki Hamza</title>
+  <base href="./">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/img/dev.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/all.css">
+   <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="styles.3ff695c00d717f2d2a11.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-7PCDR96NVW"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-        <!--=============== css  ===============-->	
-        <link type="text/css" rel="stylesheet" href="css/reset.css">
-        <link type="text/css" rel="stylesheet" href="css/plugins.css">
-        <link type="text/css" rel="stylesheet" href="css/style.css">
-        <link type="text/css" rel="stylesheet" href="css/color.css">
-        <link type="text/css" rel="stylesheet" href="css/main.css">
-        <!--=============== favicons ===============-->
-        <link rel="shortcut icon" href="img/logo/favicon.png">
-    </head>
+        gtag('config', 'G-7PCDR96NVW');
+      </script>
+  </head>
+<body>
+  <app-root></app-root>
+   <!--===== HEADER =====-->
+   <header class="l-header">
+    <nav class="nav bd-grid">
+        <div>
+           <a href="https://cherkihamza.com" class="nav__logo">🧡 Cherki Hamza 🧡</a>
+        </div>
 
-    <body>
-        <!--================= loader ================-->
-        <div class="loader-holder">
-            <div class="loader-inner loader-vis">
-                <div class="loader"></div>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#home" class="nav__link active"><i class="fa fa-home mr-3 my-color"></i>Home</a></li>
+                <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                <li class="nav__item"><a href="#work" class="nav__link">Works</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+            <i class='bx bx-menu'></i>
+        </div>
+    </nav>
+</header>
+
+<main class="l-main">
+    <!--===== HOME =====-->
+    <section class="home bd-grid" id="home">
+        <div class="home__data">
+            <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Cherki Hamza</span><br>Developer Web Full Stack</h1>
+
+            <a href="https://cherkihamza.com" class="button">Welcome</a>
+        </div>
+
+        <div class="home__social">
+            <a target="_blink" href="https://github.com/cherki-hamza" class="home__social-icon"><i class='bx bxl-github' ></i></a> 
+            <a target="_blink" href="https://www.linkedin.com/in/cherki-hamza/" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+            <a target="_blink" href="https://www.instagram.com/hpaccharki/" class="home__social-icon"><i class='bx bxl-instagram' ></i></a>
+        </div>
+
+        <div class="home__img">    
+            <img style="border-radius: 100%; padding: 20px;" src="assets/img/cherki-hamza.jpeg" alt="cherki hamza">
+        </div>
+
+    </section>
+
+    <!--===== ABOUT =====-->
+    <section class="about section " id="about">
+        <h2 class="section-title">About</h2>
+
+        <div class="about__container bd-grid">
+            <div class="about__img">
+                <img src="assets/img/cherkihamza.jpg" alt="cherki hamza">
+            </div>
+            
+            <div>
+                <h2 class="about__subtitle">I'am Cherki Hamza</h2>
+                <p class="about__text">
+                  My name is Cherki Hamza i'm a developer web php javascript full stack I'm available for freelance works and projects.
+                </p>           
+            </div>                                   
+        </div>
+    </section>
+
+    <!--===== SKILLS =====-->
+    <section class="skills section" id="skills">
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills__container bd-grid">          
+            <div>
+                <h2 class="skills__subtitle">Profesional Skills</h2>
+                <p class="skills__text">
+                  Hello i'm a developer web php javascript full stack ,I spend a lot of my time
+                   working on Backend web applications by Laravel php fremwork  , API , CMS , And Wordpresse theme development .
+                  </p>
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bxl-html5 skills__icon'></i>
+                        <span class="skills__name">HTML5 , CSS , JAVASCRIPT </span>
+                    </div>
+                    <div class="skills__bar skills__html">
+
+                    </div>
+                    <div>
+                        <span class="skills__percentage">95%</span>
+                    </div>
+                </div>
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bxl-css3 skills__icon'></i>
+                        <span class="skills__name">PHP , framework Laravel , Wordpress</span>
+                    </div>
+                    <div class="skills__bar skills__css">
+                        
+                    </div>
+                    <div>
+                        <span class="skills__percentage">85%</span>
+                    </div>
+                </div>
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bxl-javascript skills__icon' ></i>
+                        <span class="skills__name">JAVASCRIPT , framwork Angular , Vue js , Nodejs , express js </span>
+                    </div>
+                    <div class="skills__bar skills__js">
+                        
+                    </div>
+                    <div>
+                        <span class="skills__percentage">65%</span>
+                    </div>
+                </div>
+                <div class="skills__data">
+                    <div class="skills__names">
+                        <i class='bx bxs-paint skills__icon'></i>
+                        <span class="skills__name">Database , Mysql , Sqlite , MongoDB</span>
+                    </div>
+                    <div class="skills__bar skills__ux">
+                        
+                    </div>
+                    <div>
+                        <span class="skills__percentage">85%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div>              
+                <img src="assets/img/work3.jpg" alt="" class="skills__img">
             </div>
         </div>
-        <!--================= loader end ================-->  
+    </section>
 
-        <!--================= main start ================-->
-        <div id="main">
+    <!--===== WORK =====-->
+    <section class="work section" id="work">
+        <h2 class="section-title">Work</h2>
 
-            <!--================= Header ================-->
-            <header class="main-header">
-                <a href="index.html" class="logo-holder"><img src="img/logo/logo.png" alt="cherki hamza"></a>
-                <!-- info-button -->
-                <div class="nav-button" id="open-button">
-                    <span class="menu-global menu-top"></span>
-                    <span class="menu-global menu-middle"></span>
-                    <span class="menu-global menu-bottom"></span>
-                </div>
-                <!-- info-button end-->
-                <div class="show-share isShare"><img src="img/logo/share.png" alt="cherki hamza"></div>
-            </header>
-            <!-- End header -->
+        <div class="work__container bd-grid">
 
-            <!--================= menu ================-->
-            <div class="menu-wrap">
-                <div class="menu-inner">
-                    <!-- menu logo-->
-                    <a href="index.html" class="menu-logo"><img src="img/logo/logohamza.png" alt="cherki hamza"></a>
-                    <!-- menu logo end -->
-                    <div class="hid-men-wrap   alt">
-                     <div id="hid-men">
-                         <ul class="menu">                  
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="portfolio.html">Portolio</a></li>
-                            <li><a href="services.html">My services</a></li>
-                            <li><a href="works.html">My Works</a></li>                       
-                            <li><a href="blog.html">Blog</a></li>                       
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="contact2.html">Contact me</a></li>
-                         </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
-                        <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
-                    </svg>
-                </div>
+            <div class="work__img">
+                <a href=""><h6 class="section-title">CMS By framewok laravel and Voyager Admin Panel</h6></a>
+                <img src="assets/img/work1.jpg" alt="CMS By framewok laravel and Voyager Admin Panel">
             </div>
-            <!--menu end-->
 
-
-            
-            <!-- Hero section -->
-            <div class="hero-wrap fl-wrap full-height">
-                <div class="hero-item">
-                    <!-- hero-wrap-image-slider-holder  end -->
-                    <div class="slideshow-holder fl-wrap full-height">
-                        <div class="overlay"></div>
-                        <div class="num-holder3"></div>
-                        <!-- hero-wrap-image-slider  -->
-                        <div class="slideshow-slider   hero-slider  fl-wrap full-height">
-                            <!-- 1  -->
-                            <div class="item fl-wrap full-height">
-                                <div class="bg"  data-bg="img/home/slider/1.jpg"></div>
-                            </div>
-                            <!-- 1  end-->
-                            <!-- 1  -->
-                            <div class="item fl-wrap full-height">
-                                <div class="bg"  data-bg="img/home/slider/2.jpg"></div>
-                            </div>
-                            <!-- 1  end-->
-                            <!-- 1  -->
-                            <div class="item fl-wrap full-height">
-                                <div class="bg"  data-bg="img/home/slider/3.jpg"></div>
-                            </div>
-                            <!-- 1  end-->
-                            <!-- 1  -->
-                            <div class="item fl-wrap full-height">
-                                <div class="bg"  data-bg="img/home/slider/4.jpg"></div>
-                            </div>
-                            <!-- 1  end-->
-                        </div>
-                        <!-- hero-wrap-image-slider  end -->
-                    </div>
-                    <!-- hero-wrap-image-slider-holder  end -->
-                </div>
-                <div class="hero-wrap-item  left-her alt">
-                    <div class="container">
-                        <div class="fl-wrap section-entry">
-                            <p>cherki hamza</p>
-                            <h2>Welcome  </h2>
-                            <h3> Logic programming is a type of programming paradigm which is largely based on formal logic. in the programming world,
-                                    Programming is the game variables according to logic, And
-                                    The original programming seems to be true and false.</h3>
-                            <a href="#sec2" class="btn hide-icon custom-scroll-link"  ><i class="fa fa-flag-checkered"></i><span>Let's start</span></a>  
-                        </div>
-                    </div>
-                </div>
+            <div class="work__img">
+              <a href=""><h6 class="section-title">Single page application laravel vue js</h6></a>
+                <img src="assets/img/work2.jpg" alt="Single page application laravel vue js">
             </div>
-            <!-- Hero section   end -->
-            
-            <!-- fixed column  -->
-            <div class="fixed-column">
-                <div class="column-image fl-wrap full-height">
-                    <div class="bg bg-scroll" ></div>
-                    <div class="overlay"></div>
-                </div>
-                <div class="bg-title alt"><span></span></div>
-                <div class="progress-bar-wrap">
-                    <div class="progress-bar"></div>
-                </div>
+
+            <div class="work__img">
+             <a href=""> <h6 class="section-title">Portfolio web devloper</h6></a>
+                <img src="assets/img/work3.jpg" alt="Portfolio web devloper">
             </div>
-            <!-- fixed column  end -->
 
-            <!-- column-wrap  -->
-            <div class="column-wrap scroll-content">
-                <!--=============== content ===============-->	
-                <!-- scroll page navigation -->
-                <div class="scroll-nav-holder fl-wrap">
-                    <nav class="scroll-nav fl-wrap">
-                        <ul>
-                            <li><a class="scroll-link fbgs" href="#sec2" data-bgscr="images/bg/slider/1.jpg" data-bgtex="about"><span>About</span></a></li>
-                            <li><a class="scroll-link" href="#sec4" data-bgscr="img/home/slider/2.jpg" data-bgtex="resume"><span>Resume</span></a></li>
-                            <li><a class="scroll-link" href="#sec5" data-bgscr="img/home/slider/3.jpg" data-bgtex="services"><span>Services</span></a></li>
-                            <li><a class="scroll-link" href="#sec6" data-bgscr="img/home/slider/4.jpg" data-bgtex="skills"><span>Skills</span></a></li>
-                            <li><a class="scroll-link" href="#sec7" data-bgscr="img/home/slider/6.jpg" data-bgtex="clients"><span>Clients</span></a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <!-- scroll page navigation end --> 
-                <!-- content   -->               
-                <div class="content">
-                    <!-- section-->
-                    <section  id="sec2" data-scrollax-parent="true" class="scroll-con-sec   small-pad-sec">
-                        <div class="container">
-                            <div class="section-title">
-                                <h2> About me</h2>
-                                <p> cherki hamza developer web full stack. </p>
-                                <div class="clearfix"></div>
-                                <span class="bold-separator"></span>
-                            </div>
-                            <div class="fl-wrap abt-wrap">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="box-item vis-det fl-wrap">
-                                            <img src="img/home/body/hpac.jpg" class="respimg" alt="">
-                                            <a data-src="img/home/body/hpac.jpg" class="image-popup"><i class="fa fa-search"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h4 class="text-subtitle">Cherki hamza</h4>
-                                        <h3 class="text-title">Web developer & Web <span>Programmer</span> From Morocoo</h3>
-                                        <p>
-                                                Programmer is a beginner in the programming world,
-                                                Programming the game variables according to logic, And
-                                                The original programming seems to be true and false.
-                                        </p>
-                                        <a href="myportfolio.html" class="btn hide-icon"  ><i class="fa fa-eye"></i><span>My Portfolio</span></a>                          
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="parallax-title right-pos" data-scrollax="properties: { translateY: '-350px' }">About Me</div>
-                    </section>
-                    <!-- section end -->
-
-                    <!-- section facts -->
-                    <section class="scroll-con-sec dec-sec">
-                        <div class="container">
-                            <div class="inline-facts-holder fl-wrap">
-                                <!-- inline-facts -->
-                                <div class="inline-facts">
-                                    <div class="milestone-counter">
-                                        <div class="stats animaper">
-                                            <div class="num" data-content="461" data-num="461">0</div>
-                                        </div>
-                                    </div>
-                                    <h6>Finished projects</h6>
-                                    <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
-                                </div>
-                                <!-- inline-facts end -->
-                                <!-- inline-facts  -->
-                                <div class="inline-facts">
-                                    <div class="milestone-counter">
-                                        <div class="stats animaper">
-                                            <div class="num" data-content="461" data-num="461">0</div>
-                                        </div>
-                                    </div>
-                                    <h6>Finished projects</h6>
-                                    <i class="fa fa-trophy" aria-hidden="true"></i>
-                                </div>
-                                <!-- inline-facts end -->
-                                <!-- inline-facts  -->
-                                <div class="inline-facts">
-                                    <div class="milestone-counter">
-                                        <div class="stats animaper">
-                                            <div class="num" data-content="168" data-num="168">0</div>
-                                        </div>
-                                    </div>
-                                    <h6>Happy customers</h6>
-                                    <i class="fa fa-child" aria-hidden="true"></i>
-                                </div>
-                                <!-- inline-facts end -->
-                                <!-- inline-facts  -->
-                                <div class="inline-facts">
-                                    <div class="milestone-counter">
-                                        <div class="stats animaper">
-                                            <div class="num" data-content="222" data-num="222">0</div>
-                                        </div>
-                                    </div>
-                                    <h6>Working hours </h6>
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                </div>
-                                <!-- inline-facts end -->
-                            </div>
-                        </div>
-                        <!-- container end  -->
-                    </section>
-                    <!-- section end -->                 
-                    <!--=============== section resume  ===============-->	
-                    <section data-scrollax-parent="true"  id="sec4" class="scroll-con-sec dec-sec">
-                        <div class="container">
-                            <div class="section-title">
-                                <h2>Resume And TECHNICAL SKILLS</h2>
-                                <p>hello word welcom this is Cherki Hamza Full Stack  Developer</p>
-                                <div class="clearfix"></div>
-                                <span class="bold-separator"></span>
-                            </div>
-                            <div class="custom-inner-holder">
-                                <!-- 1 -->	
-                                <div class="custom-inner">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="resum-header workres">
-                                                <i class="fa fa-briefcase"></i>
-                                                <h3> Senior Web Develope</h3>
-                                                <span>  2015-2016 </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <h4>Web application development</h4>
-                                            <p>Architecture, Project Management, Client Support, PHP, MySQL, WordPress, Amazon S3, Amazon EC2, Amazon RDS,  Amazon Route 53, Amazon CloudFront, HTML5, CSS3 (animations), Foundation, SASS, jQuery, JavaScript, Google Maps  API, Google Places API, Documentation, Responsive Design, Adobe Photoshop, Adobe Illustrator.</p>
-                                            <ul>
-                                                <li>Built, tested, and maintained responsive B2C websites </li>
-                                                <li>Assisted and advised with hiring of new interactive team members</li>
-                                                <li>Full-time position to help bring experience to a young and growing interactive team</li>
-                                            </ul>
-                                            <span class="custom-inner-dec"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 1 -->
-                                <!-- 2 -->	
-                                <div class="custom-inner">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="resum-header educ">
-                                                <i class="fa fa-briefcase"></i>
-                                                <h3>Front End Back End Developer</h3>
-                                                <span>  2016-2017 </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <h4>Interface Web application development And coding</h4>
-                                            <p>Architecture, Project Management, Documentation, Amazon EC2, Amazon RDS, PHP, MySQL, AJAX, jQuery, Facebook API,  Facebook Development, HTML5, CSS3, JavaScript, Google Maps API, Google Analytics AP.</p>
-                                            <span class="custom-inner-dec"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 2 end -->
-                                <!-- 3 -->	
-                                <div class="custom-inner">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="resum-header workres">
-                                                <i class="fa fa-briefcase"></i>
-                                                <h3>Full Stack Developer </h3>
-                                                <span>  2017-2018 </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <h4>Full Stack Web application development</h4>
-                                            <p>Architecture, Project Management, Client Support, PHP,javascript, Angular ,React, Vue js , MySQL, Laravel , CodeIgniter, WordPress, Amazon S3, Amazon EC2,  Amazon RDS, Amazon Route 53, SASS, LESS, HTML5, CSS3 (animations), Foundation, Bootstrap, JSON, jQuery, JavaScript,  Google Maps API, Google Places API, PhoneGap Build, Documentation, Adobe Photoshop, Adobe Illustrator.</p>
-                                            <ul>
-                                                <li> Development of high-frequency contests and AIR MILES collector offering campaigns  </li>
-                                                <li>Designed and built URL shortener service  </li>  
-                                                <li>Designed and built solutions to improve efficiencies in project setup and deployment  </li>
-                                            </ul>
-                                            <span class="custom-inner-dec"></span>      
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 3 end -->
-                            </div>
-                            <a href="cv/cherki-hamza.pdf" target="_blank" class="btn hide-icon"><i class="fa fa-file-pdf-o"></i><span>Download Resume</span></a> 
-                        </div>
-                        <div class="parallax-title right-pos" data-scrollax="properties: { translateY: '-350px' }">My Resume</div>
-                    </section>
-                    <!-- section end -->
-                    <!-- section-->
-                    <section   id="sec5" data-scrollax-parent="true" class="scroll-con-sec dec-sec">
-                        <div class="sec-dec right-rot"></div>
-                        <div class="container">
-                            <div class="section-title">
-                                <h2>Services</h2>
-                                <p>Full-Stack Software  Developement.</p>
-                                <div class="clearfix"></div>
-                                <span class="bold-separator"></span>
-                            </div>
-                            <div class="fl-wrap serv-wrap">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <ul class="tabs sl-tabs">
-                                            <li class="tab-link current" data-tab="tab-1">
-                                                <div class="tb-item">
-                                                    <i class="fa fa-desktop"></i>
-                                                    <h3> Developement</h3>
-                                                </div>
-                                            </li>
-                                            <li class="tab-link" data-tab="tab-2">
-                                                <div class="tb-item">
-                                                    <i class="fa fa-picture-o"></i>
-                                                    <h3>faste website and sio optimisation</h3>
-                                                </div>
-                                            </li>
-                                            <li class="tab-link" data-tab="tab-3">
-                                                <div class="tb-item">
-                                                    <i class="fa fa-scissors"></i>
-                                                    <h3>Responsive application</h3>
-                                                </div>
-                                            </li>
-                                            <li class="tab-link" data-tab="tab-4">
-                                                <div class="tb-item">
-                                                    <i class="fa fa-anchor"></i>
-                                                    <h3>Web application </h3>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <!-- tab1 -->
-                                        <div id="tab-1" class="tab-content current">
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <div class="box-item vis-det fl-wrap">
-                                                        <img src="img/home/body/4.jpg" class="respimg" alt="">
-                                                        <a data-src="img/home/body/4.jpg" class="image-popup"><i class="fa fa-search"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <ul class="dec-list">
-                                                        <li> Develop / website</li>
-                                                        <li>  Develop / User inerface </li>
-                                                        <li> Develop / CMS software</li>
-                                                    </ul>
-                                                    <span class="price">100 - 1500 $</span>
-                                                </div>
-                                            </div>
-                                            <h3>Developement</h3>
-                                            <p>A Full-Stack Web Developer is someone who is able to work on both the front-end and back-end portions of an application.
-                                            </p>
-                                            <p>Back end development refers to the server side of an application and everything that communicates between the database and the browser.                                               
-                                            </p>
-                                        </div>
-                                        <!-- tab1 end -->
-                                        <!-- tab2 -->
-                                        <div id="tab-2" class="tab-content">
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <div class="box-item vis-det fl-wrap">
-                                                        <img src="img/home/body/2.jpg" class="respimg" alt="">
-                                                        <a data-src="img/home/body/2.jpg" class="image-popup"><i class="fa fa-search"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <ul class="dec-list">
-                                                        <li>Develop / fast website</li>
-                                                        <li> Develop / portfolio </li>
-                                                        <li> Develop / company website</li>
-                                                    </ul>
-                                                    <span class="price">100 - 2000 $</span>
-                                                </div>
-                                            </div>
-                                            <h3>faste website and sio optimisation</h3>
-                                            <p>A Full-Stack Web Developer is someone who is able to work on both the front-end and back-end portions of an application.
-                                            </p>
-                                            <p>Back end development refers to the server side of an application and everything that communicates between the database and the browser.                                               
-                                            </p>
-                                        </div>
-                                        <!-- tab2 end -->
-                                        <!-- tab3-->
-                                        <div id="tab-3" class="tab-content">
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <div class="box-item vis-det fl-wrap">
-                                                        <img src="img/home/body/3.jpg" class="respimg" alt="">
-                                                        <a data-src="img/home/body/3.jpg" class="image-popup"><i class="fa fa-search"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <ul class="dec-list">
-                                                        <li>Develop / Responsive app </li>
-                                                        <li> Develop / responsive website </li>
-                                                        <li> Develop / responsive portfolio blog</li>
-                                                    </ul>
-                                                    <span class="price">50 - 1000 $</span>
-                                                </div>
-                                            </div>
-                                            <h3>Responsive application</h3>
-                                            <p>A Full-Stack Web Developer is someone who is able to work on both the front-end and back-end portions of an application.
-                                            </p>
-                                            <p>Back end development refers to the server side of an application and everything that communicates between the database and the browser.                                               
-                                            </p>
-                                        </div>
-                                        <!-- tab3 end -->
-                                        <!-- tab3-->
-                                        <div id="tab-4" class="tab-content">
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <div class="box-item vis-det fl-wrap">
-                                                        <img src="img/home/body/1.jpg" class="respimg" alt="">
-                                                        <a data-src="img/home/body/1.jpg" class="image-popup"><i class="fa fa-search"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <ul class="dec-list">
-                                                        <li> Develop / Wordpresse CMS website</li>
-                                                        <li> Develop / CMS website</li>
-                                                        <li> Develop / web portfolio and blog</li>
-                                                    </ul>
-                                                    <span class="price">100 - 3250 $</span>
-                                                </div>
-                                            </div>
-                                            <h3>Web application</h3>
-                                            <p>A Full-Stack Web Developer is someone who is able to work on both the front-end and back-end portions of an application.
-                                            </p>
-                                            <p>Back end development refers to the server side of an application and everything that communicates between the database and the browser.                                               
-                                            </p>
-                                        </div>
-                                        <!-- tab3 end -->                                                
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="container">
-                            <div class="order-wrap fl-wrap color-bg">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <h4>Ready to order your project ?</h4>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="contact2.html" class="ord-link">Get In Touch</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="parallax-title right-pos" data-scrollax="properties: { translateY: '-350px' }">What i do</div>
-                    </section>
-                    <!-- section end -->                       
-                    <!-- section-->
-                    <section  id="sec6" data-scrollax-parent="true" class="scroll-con-sec  dec-sec">
-                        <div class="container">
-                            <div class="section-title">
-                                <h2>Skills</h2>
-                                <p>Full-stack and web developer</p>
-                                <div class="clearfix"></div>
-                                <span class="bold-separator"></span>
-                            </div>
-                            <div class="skills-wrap">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <blockquote>
-                                            <p>
-                                                    Full Stack Developers are computer science experts specialized in both front-end and back-end development
-                                            </p>
-                                        </blockquote>
-                                        <ul class="dec-list">
-                                            <li>  Programming skills</li>
-                                            <li>  developement skills</li>
-                                            <li>  coding skills</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="fl-wrap">
-                                            <div class="skillbar-box animaper">
-                                                <!-- skill 1-->
-                                                <div class="custom-skillbar-title"><span>php</span></div>
-                                                <div class="skill-bar-percent">90%</div>
-                                                <div class="skillbar-bg" data-percent="90%">
-                                                    <div class="custom-skillbar"></div>
-                                                </div>
-                                                <!-- skill 2-->
-                                                <div class="custom-skillbar-title"><span>Javascript</span></div>
-                                                <div class="skill-bar-percent">80%</div>
-                                                <div class="skillbar-bg" data-percent="80%">
-                                                    <div class="custom-skillbar"></div>
-                                                </div>
-                                                <!-- skill 3-->
-                                                <div class="custom-skillbar-title"><span>Jquery</span></div>
-                                                <div class="skill-bar-percent">75%</div>
-                                                <div class="skillbar-bg" data-percent="75%">
-                                                    <div class="custom-skillbar"></div>
-                                                </div>
-                                                <!-- skill 1-->
-                                                <div class="custom-skillbar-title"><span>html5-css3</span></div>
-                                                <div class="skill-bar-percent">95%</div>
-                                                <div class="skillbar-bg" data-percent="95%">
-                                                    <div class="custom-skillbar"></div>
-                                                </div>
-                                                <!-- skill 2-->
-                                                <div class="custom-skillbar-title"><span>PHP</span></div>
-                                                <div class="skill-bar-percent">75%</div>
-                                                <div class="skillbar-bg" data-percent="75%">
-                                                    <div class="custom-skillbar"></div>
-                                                </div>
-                                                <!-- skill 3-->
-                                                <div class="custom-skillbar-title"><span>CMS Wordpress</span></div>
-                                                <div class="skill-bar-percent">95%</div>
-                                                <div class="skillbar-bg" data-percent="95%">
-                                                    <div class="custom-skillbar"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <h4 class="bold-title">Programming Languages Skills</h4>
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="piechart-holder animaper">
-                                        <div class="row">
-                                            <!-- 1  -->
-                                            <div class="piechart col-md-4" >
-                                                <span class="chart" data-percent="75">
-                                                <span class="percent"></span>
-                                                </span>
-                                                <div class="clearfix"></div>
-                                                <div class="skills-description">
-                                                    <h4>php</h4>
-                                                </div>
-                                            </div>
-                                            <!-- 1 end -->
-                                            <!-- 2  -->
-                                            <div class="piechart col-md-4">
-                                                <span class="chart" data-percent="65">
-                                                <span class="percent"></span>
-                                                </span>
-                                                <div class="clearfix"></div>
-                                                <div class="skills-description">
-                                                    <h4>javascript</h4>
-                                                </div>
-                                            </div>
-                                            <!-- 2 end  -->
-                                            <!-- 3  -->
-                                            <div class="piechart col-md-4">
-                                                <span class="chart" data-percent="60">
-                                                <span class="percent"></span>
-                                                </span>
-                                                <div class="clearfix"></div>
-                                                <div class="skills-description">
-                                                    <h4>Angular</h4>
-                                                </div>
-                                            </div>
-                                            <!-- 3  end-->																
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="parallax-title right-pos" data-scrollax="properties: { translateY: '-350px' }">my skills</div>
-                    </section>
-                    <!-- section end -->
-                    <!-- section  -->     
-                    <section  id="sec7" data-scrollax-parent="true" class="scroll-con-sec">
-                        <div class="container">
-                            <div class="section-title">
-                                <h2>Cherki Hamza</h2>
-                                <p>Full stack web developer</p>
-                                <div class="clearfix"></div>
-                                <span class="bold-separator"></span>
-                            </div>
-                            <div class="testimonials-slider-holder fl-wrap">
-                                <div class="testimonials-slider owl-carousel">
-                                    <!-- item-->
-                                    <div class="item">
-                                        <div class="testi-item">
-                                            <div class="testi-image">
-                                                <img src="img/home/body/hamza.jpg" alt="cherki hamza">
-                                            </div>
-                                            <div class="testi-text fl-wrap">
-                                                <h3>Cherki Hamza </h3>
-                                                <ul class="star-rating">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                                <p>
-                                                  " Programmer is a beginner in the programming world, Programming the game variables according to logic, And The original programming seems to be true and false. "
-                                                </p>
-                                                <a href="#" class="testim-link">Via Linkdin</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- item end-->
-                                    <!-- item-->
-                                    <div class="item">
-                                        <div class="testi-item">
-                                            <div class="testi-image">
-                                                <img src="img/home/body/hamza.jpg" alt="cherki hamza">
-                                            </div>
-                                            <div class="testi-text fl-wrap">
-                                                <h3>Cherki Hamza</h3>
-                                                <ul class="star-rating">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                                <p> "Programmer is a beginner in the programming world, Programming the game variables according to logic, And The original programming seems to be true and false. "</p>
-                                                <a href="#" class="testim-link">Via Instagram</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- item end-->
-                                    <!-- item-->
-                                    <div class="item">
-                                        <div class="testi-item">
-                                            <div class="testi-image">
-                                                <img src="img/home/body/hamza.jpg" alt="cherki hamza">
-                                            </div>
-                                            <div class="testi-text fl-wrap">
-                                                <h3>Cherki Hamza</h3>
-                                                <ul class="star-rating">
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
-                                                <p> " Programmer is a beginner in the programming world, Programming the game variables according to logic, And The original programming seems to be true and false. "</p>
-                                                <a href="#" class="testim-link">Via Facebook</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- item end-->                                                            
-                                </div>
-                                <div class="customNavigation">
-                                    <a class="next-slide transition"><i class="fa fa-angle-right"></i></a>
-                                    <a class="prev-slide transition"><i class="fa fa-angle-left"></i></a>
-                                </div>
-                                <div class="teti-counter"></div>
-                            </div>
-                            <!-- clients-->
-                            <div class="clients-list fl-wrap">
-                                <ul>
-                                    <li><a href="#" target="_blank"><span><img src="img/home/body/client/1.png" alt=""></span></a></li>
-                                    <li><a href="#" target="_blank"><span><img src="img/home/body/client/2.png" alt=""></span></a></li>
-                                    <li><a href="#" target="_blank"><span><img src="img/home/body/client/3.png" alt=""></span></a></li>
-                                    <li><a href="#" target="_blank"><span><img src="img/home/body/client/4.png" alt=""></span></a></li>
-                                    <li><a href="#" target="_blank"><span><img src="img/home/body/client/5.png" alt=""></span></a></li>
-                                </ul>
-                            </div>
-                            <!-- clients end -->
-                        </div>
-                        <!-- parallax-title-->
-                        <div class="parallax-title right-pos" data-scrollax="properties: { translateY: '-350px' }">Clients</div>
-                        <!-- parallax-title end -->
-                    </section>
-                    <!-- section  end-->
-                    <!--  to top  -->  
-                    <div class="small-sec fl-wrap">
-                        <div class="to-top-wrap"><a class="to-top" href="#"> <i class="fa fa-angle-double-up"></i> Back to Top</a></div>
-                    </div>
-                    <!-- to top end--> 
-                </div>
-                <!-- content end -->
+            <div class="work__img">
+             <a href=""> <h6 class="section-title">Employee management system by laravel backend , frontend</h6></a>
+                <img src="assets/img/work4.jpg" alt="Employee management system by laravel backend , frontend">
             </div>
-            <!-- column-wrap end -->
-            <!-- arrow nav -->
-            <div class="arrowpagenav"></div>
-            <!-- arrow nav end-->
 
-            <!-- footer-->
-            <footer class="main-footer">
-                <a href="contact2.html" class="mail-link"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-                <!-- header-social-->
-                <div class="footer-social">
-                    <ul >
-                        <li><a href="http://linkedin.com/in/cherki-hamza" target="_blank" ><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="https://www.facebook.com/cherki.multimedia" target="_blank" ><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://twitter.com/cherki0dev" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="https://www.instagram.com/cherkimultimedia/" target="_blank" ><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="http://github.com/cherki-hamza" target="_blank" ><i class="fa fa-github"></i></a></li>
-                        <li><a href="https://www.codeply.com/dashboard" target="_blank" ><i class="fa fa-pagelines"></i></a></li>
-                    </ul>
-                </div>
-                <!-- header-social end-->           
-                <div class="copyright">&#169; 2018 cherki-hamza.com</div>
-            </footer>
-            <!-- footer end -->
-            <!-- Share container  -->
-           <div class="share-container  isShare"  data-share="['facebook','pinterest','googleplus','twitter','linkedin']"></div>
-            <!-- Share container  end-->
+            <div class="work__img">
+             <a href=""> <h6 class="section-title">Company website admin panel by backend voyager  and frontend </h6></a>
+                <img src="assets/img/work5.jpg" alt="Company website by backend voyager admin panel and frontend">
+            </div>
 
+            <div class="work__img">
+              <a href=""><h6 class="section-title">E-commerce application by laravel framework , frontend and backend shop</h6></a>
+                <img src="assets/img/work6.jpg" alt="E-commerce application by laravel framework , frontend and backend shop">
+            </div>
         </div>
-        <!-- Main end -->
-        <!--=============== scripts  ===============-->
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/plugins.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
+    </section>
 
-    </body>
+    <!--===== CONTACT =====-->
+    <section class="contact section" id="contact">
+        <h2 class="section-title">Contact</h2>
 
+          <div class="skills__container bd-grid">          
+            <div>
+                <h2 class="skills__subtitle">Follow me</h2>
+                <p class="skills__text">
+                    <a target="_blink" href="https://github.com/cherki-hamza" class="home__social-icon"><i class='bx bxl-github' ></i></a> 
+                    <a target="_blink" href="https://www.linkedin.com/in/cherki-hamza/" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+                    <a target="_blink" href="https://www.instagram.com/hpaccharki/" class="home__social-icon"><i class='bx bxl-instagram' ></i></a>
+                </p>
+               <p class="skills__text">
+                    Email : fullstack@cherkihamza.com
+                </p>
+                <p class="skills__text">
+                    Email : cherki0hamza@gmail.com
+                </p>
+            </div>
+            
+            <div>              
+                <img src="assets/img/hamza_dev.jpg" style="height: 400px;" alt="cherki hamza" class="about__img">
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<!--===== FOOTER =====-->
+<footer class="footer">
+    <p class="footer__title">🧡 Cherki Hamza 🧡</p>
+    <div class="footer__social">
+        <a target="_blink" href="https://github.com/cherki-hamza" class="home__social-icon"><i class='bx bxl-github' ></i></a> 
+        <a target="_blink" href="https://www.linkedin.com/in/cherki-hamza/" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+        <a target="_blink" href="https://www.instagram.com/hpaccharki/" class="home__social-icon"><i class='bx bxl-instagram' ></i></a>
+    </div>
+    <p>&#169; 2020-2021 copyright all right reserved</p>
+</footer>
+   
+   <script src="https://unpkg.com/scrollreveal"></script>
+   <script src="assets/js/main.js"></script>
+<script src="runtime.acf0dec4155e77772545.js" defer></script><script src="polyfills.35a5ca1855eb057f016a.js" defer></script><script src="main.ebc9d3c1a424277807d1.js" defer></script></body>
 </html>
