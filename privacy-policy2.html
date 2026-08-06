@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Cherki Hamza - Android Apps</title>
+    <meta name="description"
+        content="Privacy Policy for Android applications developed by Cherki Hamza. Learn how we collect, use, and protect your personal information.">
+    <link rel="icon" type="image/png" href="assets/img/dev.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        /* ============================================
+   PRIVACY POLICY PAGE STYLES
+   Matching Portfolio Template
+   ============================================ */
+
+        /* ============================================
+   CSS VARIABLES
+   ============================================ */
+        :root {
+            /* Colors - Hacker/Matrix Theme */
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #0d1117;
+            --bg-tertiary: #161b22;
+            --bg-card: rgba(13, 17, 23, 0.8);
+
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+
+            /* Matrix Green + Cyan Accents */
+            --accent-primary: #00ff41;
+            --accent-secondary: #00d9ff;
+            --accent-tertiary: #ff0080;
+            --accent-gradient: linear-gradient(135deg, #00ff41 0%, #00d9ff 50%, #00ff41 100%);
+            --accent-glow: rgba(0, 255, 65, 0.4);
+            --neon-glow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 20px #00ff41;
+            --neon-glow-cyan: 0 0 5px #00d9ff, 0 0 10px #00d9ff, 0 0 20px #00d9ff;
+
+            --border-color: rgba(0, 255, 65, 0.15);
+            --border-hover: rgba(0, 255, 65, 0.4);
+
+            /* Spacing */
+            --section-padding: 120px;
+            --container-width: 900px;
+
+            /* Typography - Monospace for hacker aesthetic */
+            --font-primary: 'Fira Code', 'Space Mono', monospace;
+            --font-mono: 'Fira Code', 'Space Mono', monospace;
+
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+        }
+
+        /* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-primary) var(--bg-secondary);
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 4px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        ::selection {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-primary);
+            transition: var(--transition-base);
+        }
+
+        a:hover {
+            color: var(--accent-secondary);
+            text-shadow: var(--neon-glow-cyan);
+        }
+
+        /* ============================================
+   NOISE OVERLAY
+   ============================================ */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Scanline Effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            background: repeating-linear-gradient(0deg,
+                    rgba(0, 0, 0, 0.1) 0px,
+                    rgba(0, 0, 0, 0.1) 1px,
+                    transparent 1px,
+                    transparent 3px);
+            opacity: 0.3;
+        }
+
+        /* ============================================
+   CONTAINER
+   ============================================ */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================
+   HEADER & NAVIGATION
+   ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav__logo {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            transition: var(--transition-base);
+        }
+
+        .nav__logo:hover {
+            color: var(--accent-primary);
+        }
+
+        .logo-bracket {
+            color: var(--accent-primary);
+        }
+
+        .nav__back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            transition: var(--transition-base);
+        }
+
+        .nav__back:hover {
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* ============================================
+   PRIVACY POLICY CONTENT
+   ============================================ */
+        .policy {
+            padding: 140px 0 80px;
+            min-height: 100vh;
+        }
+
+        .policy__header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .policy__tag {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            display: block;
+            margin-bottom: 16px;
+            animation: blink-cursor 1s infinite;
+        }
+
+        @keyframes blink-cursor {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .policy__title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .policy__meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .policy__meta span {
+            color: var(--accent-secondary);
+        }
+
+        /* Policy Card */
+        .policy__card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .policy__intro {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            line-height: 1.9;
+        }
+
+        .policy__section {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .policy__section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .policy__section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .policy__section-title::before {
+            content: '>';
+            color: var(--accent-primary);
+            font-family: var(--font-mono);
+        }
+
+        .policy__section-title i {
+            color: var(--accent-secondary);
+            font-size: 1.2rem;
+        }
+
+        .policy__text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.9;
+        }
+
+        .policy__text:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy__list {
+            list-style: none;
+            padding-left: 0;
+            margin: 16px 0;
+        }
+
+        .policy__list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .policy__list li::before {
+            content: '//';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-family: var(--font-mono);
+            font-weight: 600;
+        }
+
+        /* Contact Box */
+        .policy__contact {
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.05), rgba(0, 217, 255, 0.05));
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .policy__contact-title {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .policy__contact-title i {
+            color: var(--accent-primary);
+        }
+
+        .policy__contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .policy__contact a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            color: var(--accent-primary);
+            padding: 12px 24px;
+            border: 1px solid var(--accent-primary);
+            border-radius: var(--radius-full);
+            transition: var(--transition-base);
+        }
+
+        .policy__contact a:hover {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .policy__contact a.website-link {
+            border-color: var(--accent-secondary);
+            color: var(--accent-secondary);
+        }
+
+        .policy__contact a.website-link:hover {
+            background: var(--accent-secondary);
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.4);
+        }
+
+        /* ============================================
+   FOOTER
+   ============================================ */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+        }
+
+        .footer__content {
+            text-align: center;
+        }
+
+        .footer__logo {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .footer__text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .footer__socials {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer__socials a {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: var(--transition-base);
+        }
+
+        .footer__socials a:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            box-shadow: 0 0 15px var(--accent-glow);
+            transform: translateY(-3px);
+        }
+
+        .footer__bottom {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+        @media (max-width: 768px) {
+            .policy {
+                padding: 120px 0 60px;
+            }
+
+            .policy__card {
+                padding: 24px;
+            }
+
+            .policy__section-title {
+                font-size: 1.2rem;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .policy__contact-info {
+                width: 100%;
+            }
+
+            .policy__contact a {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ============================================
+   ANIMATIONS
+   ============================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .policy__card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .policy__section {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .policy__section:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .policy__section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .policy__section:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .policy__section:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .policy__section:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .policy__section:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .policy__section:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .policy__section:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Noise Overlay -->
+    <div class="noise"></div>
+    <div class="scanlines"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="nav__logo">
+                <span class="logo-bracket">[</span>CHERKI<span class="logo-bracket">]</span><span
+                    style="color: var(--accent-primary);">_</span>
+            </a>
+            <a href="index.html" class="nav__back">
+                <i class='bx bx-arrow-back'></i>
+                <span>Back to Portfolio</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Privacy Policy Content -->
+    <main class="policy">
+        <div class="container">
+            <div class="policy__header">
+                <span class="policy__tag">> loading privacy_policy.md...</span>
+                <h1 class="policy__title">Privacy Policy</h1>
+                <p class="policy__meta">Last updated: <span>January 17, 2026</span></p>
+            </div>
+
+            <div class="policy__card">
+                <!-- Introduction -->
+                <p class="policy__intro">
+                    <strong>Cherki Hamza</strong> built this application as a free/paid application. This SERVICE is
+                    provided by Cherki Hamza and is intended for use as is.
+                    <br><br>
+                    This page is used to inform visitors regarding my policies with the collection, use, and disclosure
+                    of Personal Information if anyone decided to use my Service.
+                </p>
+
+                <!-- Information Collection and Use -->
+                <section class="policy__section">
+                    <h2 class="policy__section-title">
+                        <i class='bx bx-data'></i> Information Collection and Use
+                    </h2>
+                    <p class="policy__text">
+                        The app may collect certain personal information such as name, email address, and usage data
+                        only when necessary to provide app functionality and improve user experience.
+                    </p>
+                </section>
+
+                <!-- Log Data -->
+                <section class="policy__section">
+                    <h2 class="policy__section-title">
+                        <i class='bx bx-file'></i> Log Data
+                    </h2>
+                    <p class="policy__text">
+                        In case of an error, the app may collect data and information on your phone called Log Data.
+                        This may include your device Internet Protocol ("IP") address, device name, operating system
+                        version, and usage statistics.
+                    </p>
+                </section>
+
+                <!-- Cookies -->
+                <section class="policy__section">
+                    <h2 class="policy__section-title">
+                        <i class='bx bx-cookie'></i> Cookies
+                    </h2>
+                    <p class="policy__text">
+                        This app does not use cookies explicitly.
+                    </p>
+                </section>
+
+                <!-- Third-Party Services -->
+                <section class="policy__section">
+                    <h2 class="policy__section-title">
+                        <i class='bx bx-link-external'></i> Third-Party Services
+                    </h2>
+                    <p class="policy__text">
+                        The app may use third-party services such as:
+                    </p>
+                    <ul class="policy__list">
+                        <li>Google Play Services</li>
+                        <li>Firebase Analytics (if used)</li>
+                    </ul>
+                    <p class="policy__text">
+                        These services may collect information used to identify you.
+                    </p>
+                </section>
+
+                <!-- Security -->
+                <section class="policy__section">
+                    <h2 class="policy__section-title">
+                        <i class='bx bx-shield-quarter'></i> Security
+                    </h2>
+                    <p class="policy__text">
+                        I value your trust in providing your Personal Information and strive to use commercially
+                        acceptable means of protecting it.
+                    </p>
+                </section>
+
+                <!-- Children's Privacy -->
+                <section class="policy__section">
+                    <h2 class="policy__section-title">
+                        <i class='bx bx-child'></i> Children's Privacy
+                    </h2>
+                    <p class="policy__text">
+                        This app does not knowingly collect personally identifiable information from children under the
+                        age of 13.
+                    </p>
+                </section>
+
+                <!-- Changes to This Privacy Policy -->
+                <section class="policy__section">
+                    <h2 class="policy__section-title">
+                        <i class='bx bx-revision'></i> Changes to This Privacy Policy
+                    </h2>
+                    <p class="policy__text">
+                        This policy may be updated from time to time. You are advised to review this page periodically
+                        for any changes.
+                    </p>
+                </section>
+
+                <!-- Contact Me -->
+                <div class="policy__contact">
+                    <h3 class="policy__contact-title">
+                        <i class='bx bx-envelope'></i> Contact Me
+                    </h3>
+                    <p class="policy__text">
+                        If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me:
+                    </p>
+                    <div class="policy__contact-info">
+                        <a href="mailto:contact@cherkihamza.com">
+                            <i class='bx bx-envelope'></i>
+                            contact@cherkihamza.com
+                        </a>
+                        <a href="https://cherkihamza.com" target="_blank" class="website-link">
+                            <i class='bx bx-globe'></i>
+                            https://cherkihamza.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <a href="index.html" class="footer__logo">
+                    <span class="logo-bracket">[</span>CHERKI<span class="logo-bracket">]</span><span
+                        style="color: var(--accent-primary);">_</span>
+                </a>
+
+                <p class="footer__text" style="font-family: var(--font-mono);">
+                    <span style="color: var(--accent-primary);">></span> Crafting digital experiences with code and
+                    creativity.
+                </p>
+
+                <div class="footer__socials">
+                    <a href="https://github.com/cherki-hamza" target="_blank">
+                        <i class='bx bxl-github'></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/cherki-hamza/" target="_blank">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                    <a href="https://www.instagram.com/hpaccharki/" target="_blank">
+                        <i class='bx bxl-instagram'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p style="font-family: var(--font-mono);">&copy; 2026 <span style="color: var(--accent-primary);">Cherki
+                        Hamza</span> // All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

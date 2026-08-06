@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image to WebP Converter with Test Ads</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .preview-img {
+      width: 160px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .preview-img:hover {
+      transform: scale(1.05);
+    }
+    .image-wrapper {
+      position: relative;
+      margin: 10px;
+    }
+    .remove-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: rgba(255, 0, 0, 0.8);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      font-weight: bold;
+      line-height: 21px;
+      cursor: pointer;
+    }
+    .spinner-border {
+      width: 2rem;
+      height: 2rem;
+    }
+  </style>
+
+  <!-- Google AdSense script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body class="p-4">
+  <div class="container">
+
+    <!-- 🔝 Top Test Ad -->
+    <div class="mb-4 text-center">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3940256099942544"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <h2 class="mb-4 text-center text-primary">🎯 Convert Images to .webp & Download as ZIP</h2>
+
+    <div class="row mb-3">
+      <div class="col-md-8">
+        <input type="file" id="imageInput" class="form-control" multiple accept="image/*">
+      </div>
+      <div class="col-md-4 text-end">
+        <button id="convertBtn" class="btn btn-success w-100">Convert & Download ZIP</button>
+      </div>
+    </div>
+
+    <!-- 🪟 Mid Test Ad -->
+    <div class="mb-4 text-center">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3940256099942544"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <div id="spinner" class="text-center my-3 d-none">
+      <div class="spinner-border text-primary" role="status"></div>
+      <p class="mt-2">Converting images, please wait...</p>
+    </div>
+
+    <div id="previewContainer" class="d-flex flex-wrap justify-content-start"></div>
+
+    <div id="successAlert" class="alert alert-success text-center mt-4 d-none">
+      ✅ Conversion complete! ZIP file downloaded.
+    </div>
+
+    <!-- 🧯 Bottom Test Ad -->
+    <div class="mt-5 text-center">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3940256099942544"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.0/jszip.min.js"></script>
+  <script>
+    const imageInput = document.getElementById('imageInput');
+    const previewContainer = document.getElementById('previewContainer');
+    const convertBtn = document.getElementById('convertBtn');
+    const spinner = document.getElementById('spinner');
+    const successAlert = document.getElementById('successAlert');
+    let images = [];
+
+    imageInput.addEventListener('change', (e) => {
+      previewContainer.innerHTML = '';
+      images = [];
+
+      const files = Array.from(e.target.files);
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const img = new Image();
+          img.src = event.target.result;
+          img.classList.add('preview-img');
+
+          const wrapper = document.createElement('div');
+          wrapper.classList.add('image-wrapper');
+
+          const removeBtn = document.createElement('button');
+          removeBtn.classList.add('remove-btn');
+          removeBtn.innerHTML = '&times;';
+          removeBtn.onclick = () => {
+            wrapper.remove();
+            images = images.filter(i => i.file !== file);
+          };
+
+          wrapper.appendChild(img);
+          wrapper.appendChild(removeBtn);
+          previewContainer.appendChild(wrapper);
+
+          images.push({ file, dataUrl: event.target.result });
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+
+    convertBtn.addEventListener('click', () => {
+      if (images.length === 0) {
+        alert("Please upload images first.");
+        return;
+      }
+
+      spinner.classList.remove('d-none');
+      successAlert.classList.add('d-none');
+      convertBtn.disabled = true;
+
+      const zip = new JSZip();
+      let convertedCount = 0;
+
+      images.forEach(({ file, dataUrl }) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+
+          canvas.toBlob(blob => {
+            const reader = new FileReader();
+            reader.onloadend = function() {
+              const base64data = reader.result.split(',')[1];
+              const fileName = file.name.replace(/\.[^/.]+$/, "") + '.webp';
+              zip.file(fileName, base64data, { base64: true });
+
+              convertedCount++;
+              if (convertedCount === images.length) {
+                zip.generateAsync({ type: "blob" }).then(content => {
+                  const link = document.createElement('a');
+                  link.href = URL.createObjectURL(content);
+                  link.download = "converted_images.zip";
+                  link.click();
+
+                  spinner.classList.add('d-none');
+                  successAlert.classList.remove('d-none');
+                  convertBtn.disabled = false;
+                  previewContainer.innerHTML = '';
+                  imageInput.value = '';
+                  images = [];
+                });
+              }
+            };
+            reader.readAsDataURL(blob);
+          }, 'image/webp');
+        };
+        img.src = dataUrl;
+      });
+    });
+  </script>
+</body>
+</html>

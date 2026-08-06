@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Responsive Watermark Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <style>
+    body { background-color: #f8f9fa; }
+    canvas { width: 100%; max-width: 100%; border: 1px solid #ccc; }
+    #status, #loadingSpinner { display: none; }
+    .panel-scrollable { max-height: 100vh; overflow-y: auto; padding-bottom: 20px; }
+    @media (max-width: 991.98px) {
+      .vh-lg-100 { height: auto !important; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid vh-100 vh-lg-100 d-flex flex-column py-2">
+  <h4 class="text-center mb-2">🖼️ Capitalbaths Watermark & Copyright Image Tool</h4>
+  <div class="row flex-grow-1 overflow-hidden">
+    <!-- Controls Panel -->
+    <div class="col-lg-4 bg-white border-end panel-scrollable p-3">
+      <div class="mb-3">
+        <label class="form-label">1. Upload Main Image</label>
+        <input type="file" id="imageInput" class="form-control" accept="image/*">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">2. Upload Logo (Watermark)</label>
+        <input type="file" id="logoInput" class="form-control" accept="image/*">
+        <button class="btn  btn-warning btn-sm mt-4" onclick="loadDefaultLogo()">Use Default Logo</button>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">3. Opacity: <span id="opacityValue">10%</span></label>
+        <input type="range" id="opacityInput" min="1" max="50" value="10" class="form-range">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">4. Size: <span id="sizeValue">30%</span></label>
+        <input type="range" id="sizeInput" min="5" max="90" value="30" class="form-range">
+      </div>
+      <div class="text-muted mb-2">5. Drag watermark to reposition</div>
+      <div class="row gap-2 mb-3">
+        <button style="max-width: 200px;" id="resetBtn" class="btn btn-secondary btn-sm" disabled>Reset Position</button>
+        <button style="max-width: 200px;" id="centerBtn" class="btn btn-dark btn-sm" disabled>Center Logo</button>
+        <button style="max-width: 200px;" id="applyBtn" class="btn btn-success btn-sm" disabled>Apply Watermark</button>
+        <button style="max-width: 200px;margin-left: 10px;" id="downloadBtn" class="btn btn-primary btn-sm" disabled>Download Image</button>
+      </div>
+      <div class="spinner-border text-success" role="status" id="loadingSpinner">
+        <span class="visually-hidden">Processing...</span>
+      </div>
+      <div id="status" class="alert alert-info mt-3 animate__animated animate__fadeIn"></div>
+    </div>
+
+    <!-- Canvas Panel -->
+    <div class="col-lg-8 d-flex align-items-center justify-content-center bg-white p-2">
+      <canvas id="canvas" class="border rounded shadow-sm bg-white" style="max-height: 90vh;"></canvas>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const imageInput = document.getElementById('imageInput');
+  const logoInput = document.getElementById('logoInput');
+  const opacityInput = document.getElementById('opacityInput');
+  const sizeInput = document.getElementById('sizeInput');
+  const opacityValue = document.getElementById('opacityValue');
+  const sizeValue = document.getElementById('sizeValue');
+  const resetBtn = document.getElementById('resetBtn');
+  const applyBtn = document.getElementById('applyBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const centerBtn = document.getElementById('centerBtn');
+  const status = document.getElementById('status');
+  const spinner = document.getElementById('loadingSpinner');
+
+  let originalImage, watermark, finalImageData;
+  let watermarkPosition = { x: 0, y: 0, width: 0, height: 0, dragging: false, offsetX: 0, offsetY: 0 };
+
+  // Load default logo on page load
+  window.addEventListener('DOMContentLoaded', loadDefaultLogo);
+
+  function loadDefaultLogo() {
+    watermark = new Image();
+    watermark.onload = () => {
+      updateWatermarkSize();
+      centerWatermark();
+      render();
+      checkButtons();
+      showStatus("Default logo loaded.", "info");
+    };
+    watermark.src = './capitalbaths.png'; // Make sure logo.png is in the same folder
+  }
+
+  imageInput.addEventListener('change', loadImage);
+  logoInput.addEventListener('change', loadLogo);
+  opacityInput.addEventListener('input', () => {
+    opacityValue.textContent = opacityInput.value + '%';
+    render();
+  });
+  sizeInput.addEventListener('input', () => {
+    sizeValue.textContent = sizeInput.value + '%';
+    updateWatermarkSize();
+    render();
+  });
+  resetBtn.addEventListener('click', () => {
+    centerWatermark();
+    render();
+  });
+
+  applyBtn.addEventListener('click', () => {
+    if (!originalImage || !watermark) return;
+    spinner.style.display = 'inline-block';
+    setTimeout(() => {
+      render();
+      finalImageData = canvas.toDataURL('image/png');
+      spinner.style.display = 'none';
+      downloadBtn.disabled = false;
+      showStatus('✅ Watermark applied successfully!', 'info');
+    }, 600);
+  });
+
+  downloadBtn.addEventListener('click', () => {
+    if (!finalImageData) {
+      applyBtn.click(); return;
+    }
+    const a = document.createElement('a');
+    a.href = finalImageData;
+    a.download = 'watermarked-image.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    showStatus('⬇️ Download started...', 'success');
+  });
+
+  function loadImage(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      originalImage = new Image();
+      originalImage.onload = () => {
+        canvas.width = originalImage.width;
+        canvas.height = originalImage.height;
+        if (watermark) updateWatermarkSize();
+        render();
+        checkButtons();
+      };
+      originalImage.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function loadLogo(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      watermark = new Image();
+      watermark.onload = () => {
+        updateWatermarkSize();
+        centerWatermark();
+        render();
+        checkButtons();
+        showStatus("Custom logo loaded.", "info");
+      };
+      watermark.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function updateWatermarkSize() {
+    if (!watermark || !originalImage) return;
+    const scale = sizeInput.value / 100;
+    watermarkPosition.width = originalImage.width * scale;
+    watermarkPosition.height = (watermark.height / watermark.width) * watermarkPosition.width;
+  }
+
+  function centerWatermark() {
+    watermarkPosition.x = (canvas.width - watermarkPosition.width) / 2;
+    watermarkPosition.y = (canvas.height - watermarkPosition.height) / 2;
+  }
+
+  function render() {
+    if (!originalImage) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(originalImage, 0, 0);
+    if (watermark) {
+      ctx.globalAlpha = opacityInput.value / 100;
+      ctx.drawImage(watermark, watermarkPosition.x, watermarkPosition.y, watermarkPosition.width, watermarkPosition.height);
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  function showStatus(msg, type = 'info') {
+    status.className = `alert alert-${type} mt-3 animate__animated animate__fadeIn`;
+    status.textContent = msg;
+    status.style.display = 'block';
+    setTimeout(() => status.style.display = 'none', 4000);
+  }
+
+  function checkButtons() {
+    const enabled = originalImage && watermark;
+    resetBtn.disabled = !enabled;
+    applyBtn.disabled = !enabled;
+    centerBtn.disabled = !enabled; // ✅ Add this line
+  }
+
+  centerBtn.addEventListener('click', () => {
+    centerWatermark();
+    render();
+  });
+
+  canvas.addEventListener('mousedown', e => {
+    const { x, y } = getMouse(e);
+    if (isInsideWatermark(x, y)) {
+      watermarkPosition.dragging = true;
+      watermarkPosition.offsetX = x - watermarkPosition.x;
+      watermarkPosition.offsetY = y - watermarkPosition.y;
+    }
+  });
+  canvas.addEventListener('mousemove', e => {
+    if (!watermarkPosition.dragging) return;
+    const { x, y } = getMouse(e);
+    watermarkPosition.x = x - watermarkPosition.offsetX;
+    watermarkPosition.y = y - watermarkPosition.offsetY;
+    render();
+  });
+  canvas.addEventListener('mouseup', () => watermarkPosition.dragging = false);
+  canvas.addEventListener('mouseleave', () => watermarkPosition.dragging = false);
+
+  function getMouse(e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    return {
+      x: (e.clientX - rect.left) * scaleX,
+      y: (e.clientY - rect.top) * scaleY
+    };
+  }
+
+  function isInsideWatermark(x, y) {
+    return (
+      x > watermarkPosition.x &&
+      x < watermarkPosition.x + watermarkPosition.width &&
+      y > watermarkPosition.y &&
+      y < watermarkPosition.y + watermarkPosition.height
+    );
+  }
+</script>
+
+</body>
+</html>
